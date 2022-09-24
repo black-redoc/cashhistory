@@ -16,8 +16,8 @@ public class IncomeAPI {
     private final IncomeService incomeService;
 
     @Autowired
-    public IncomeAPI(IncomeService incomeRepository) {
-        this.incomeService = incomeRepository;
+    public IncomeAPI(IncomeService incomeService) {
+        this.incomeService = incomeService;
     }
 
     @GetMapping("/income")
@@ -29,7 +29,7 @@ public class IncomeAPI {
     ResponseEntity getIncomeById(@PathVariable long id) {
         Income income = incomeService.findById(id);
         if (income == null)
-            return new ResponseEntity<>(Map.of("error", "Not found income with id " + id), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(Map.of("error", "Income not found  with id " + id), HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(income, HttpStatus.OK);
     }
 
