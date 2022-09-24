@@ -18,15 +18,15 @@ public class Expense {
     private double amount;
     private LocalDateTime createdAt;
 
+    public Expense() {
+    }
+
     public Expense(String concept, double amount, LocalDateTime createdAt) {
         this.concept = concept;
         this.amount = amount;
         this.createdAt = createdAt;
     }
 
-    public Expense(){
-
-    }
     public long getId() {
         return id;
     }

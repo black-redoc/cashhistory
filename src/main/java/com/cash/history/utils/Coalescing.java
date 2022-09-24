@@ -1,7 +1,10 @@
 package com.cash.history.utils;
 
+import javax.validation.constraints.NotNull;
+
 public class Coalescing {
     @SafeVarargs
+    @NotNull
     public static <T> T firstNotNull(T... values) {
         /*
          * firstNotNull
@@ -10,6 +13,6 @@ public class Coalescing {
          * as last parameter.
          */
         for (T value : values) if (value != null) return value;
-        return null;
+        return values[values.length - 1];
     }
 }
